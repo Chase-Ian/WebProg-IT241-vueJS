@@ -1,3 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+background: radial-gradient(circle at 20% 20%, #0d0f1a, #000000 80%);
+color: #ffffff;
+font-family: "Inter", sans-serif;
+min-height: 100vh;
+}
+.star-field {
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+pointer-events: none;
+z-index: -1;
+background: url('https://i.pinimg.com/originals/f5/42/b4/f542b451edfdd55a8bf3f0a1392ef9f6.jpg');
+opacity: 0.35;
+background-size: contain;
+}
+.profile-card {
+  width: min(90%, 1200px);
+  min-height: 70vh;
+  padding: clamp(32px, 5vw, 64px);
+  backdrop-filter: blur(14px);
+}
+.avatar {
+width: clamp(100px, 25vw, 140px);
+height: clamp(100px, 25vw, 140px);
+border-radius: 50%;
+object-fit: cover;
+border: 3px solid rgba(255,255,255,0.3);
+box-shadow: 0 0 15px rgba(255,255,255,0.25);
+}
+.social a {
+color: #ffffff;
+margin: 0 10px;
+font-size: 1.5rem;
+transition: 0.3s;
+}
+.social a:hover {
+color: #9bbcff;
+}
+
+p {
+color:#cdcdcd;
+font-family: 'Roboto', sans-serif;
+font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+h3{
+font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+}
+
+.gallery-img {
+  width: clamp(180px, 22vw, 360px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255,255,255,0.25);
+}
+
+@media (min-width: 992px) {
+  .gallery-img:hover {
+    transform: scale(1.1);
+  }
+}
+
+.page {
+  display: none;
+  padding-top: 100px;
+}
+
+.page.active {
+  display: block;
+}
+
 #app {
       display: inline-block;
       padding: 10px;
