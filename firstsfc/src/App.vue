@@ -7,4 +7,7 @@
 
 <script></script>
 
-<style></style>
+<style>
+h1 { font-family: sans-serif; margin-bottom: 10px; } 
+food-item { display: block; border: 1px solid #ccc; padding: 8px; margin: 6px 0; border-radius: 4px; background: #fafafa; }
+</style>
