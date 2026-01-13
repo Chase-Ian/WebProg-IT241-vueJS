@@ -8,6 +8,11 @@
 <script></script>
 
 <style>
-h1 { font-family: sans-serif; margin-bottom: 10px; } 
-food-item { display: block; border: 1px solid #ccc; padding: 8px; margin: 6px 0; border-radius: 4px; background: #fafafa; }
+  #app > div {
+    border: dashed black 1px;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background-color: lightgreen;
+  }
 </style>
