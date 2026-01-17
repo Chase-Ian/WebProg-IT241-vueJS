@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style>
-  .item1 #app > div {
+  .item1{
     border: dashed black 1px;
     display: inline-block;
     margin: 10px;
