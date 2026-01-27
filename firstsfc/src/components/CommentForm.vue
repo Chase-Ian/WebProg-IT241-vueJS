@@ -54,9 +54,6 @@
   
   <style scoped>
   /* Basic styling - Customize as needed */
-  .commentform{
-    backdrop-filter: blur(14px);
-  }
 
   .form-group {
     margin-bottom: 1rem;
