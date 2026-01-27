@@ -205,6 +205,8 @@ const go = (page) => {
   pointer-events: none;
   z-index: -1;
   background: url('https://i.pinimg.com/originals/f5/42/b4/f542b451edfdd55a8bf3f0a1392ef9f6.jpg') center/cover no-repeat;
+  background-size: cover; 
+  background-position: center center; 
 }
 
 /* CONTENT */
