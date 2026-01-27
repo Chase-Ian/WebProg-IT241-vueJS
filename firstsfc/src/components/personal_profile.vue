@@ -1,35 +1,17 @@
 <template>
-  <div class = "body">
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-      <div class="container-fluid">
-        <a
-          class="navbar-brand"
-          href="#"
-          @click.prevent="currentPage = 'home'"
-        >
-          Personal Profile
-        </a>
+  <div class="profile-container">
 
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#"
-              @click.prevent="currentPage = 'about'"
-            >
-              About Me
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#"
-              @click.prevent="currentPage = 'gallery'"
-            >
-              Gallery
-            </a>
-          </li>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-inner">
+        <span class="brand" @click="go('home')">Personal Profile</span>
+
+        <button class="hamburger" @click="menuOpen = !menuOpen">☰</button>
+
+        <ul class="nav-links" :class="{ open: menuOpen }">
+          <li @click="go('home')">Home</li>
+          <li @click="go('about')">About</li>
+          <li @click="go('gallery')">Gallery</li>
         </ul>
       </div>
     </nav>
@@ -38,100 +20,76 @@
     <div class="star-field"></div>
 
     <!-- CONTENT -->
-    <div class="container d-flex justify-content-center align-items-center">
-      <div class="profile-card text-center col-12 col-md-7 col-lg-5">
+    <main class="content">
+      <div class="profile-card">
 
         <!-- HOME -->
         <section v-show="currentPage === 'home'" class="page">
           <h1>Welcome to my personal webpage!</h1>
-          <br />
-          <h2 class="fw-bold">Chase Ian</h2>
+          <h2>Chase Ian</h2>
 
-          <img
-            class="avatar mb-4"
-            :src="avatar"
-            alt="Avatar"
-          />
-
+          <img class="avatar" :src="avatar" alt="Avatar" />
           <p>• Programmer • Game Developer</p>
         </section>
 
         <!-- ABOUT -->
         <section v-show="currentPage === 'about'" class="page">
-          <img
-            class="avatar mb-4"
-            :src="avatar"
-            alt="Avatar"
-          />
+          <img class="avatar" :src="avatar" alt="Avatar" />
+          <h2>Chase Ian</h2>
 
-          <h2 class="fw-bold">Chase Ian</h2>
-
-          <p class="mt-3">
+          <p>
             <strong>About Me</strong><br />
             Good day! My name is Chase from IT241.
           </p>
 
-          <div class="container mt-5">
-            <div class="row">
-              <div class="col-sm-4">
-                <h3>Education / Achievements</h3>
-                <p>Asia Pacific College (on-going)</p>
-              </div>
-
-              <div class="col-sm-4">
-                <h3>Course</h3>
-                <p>Bachelor of Information Technology (on-going)</p>
-              </div>
-
-              <div class="col-sm-4">
-                <h3>IT Experience</h3>
-                <p>GitHub, game development, programming in Lua and Python</p>
-              </div>
+          <div class="about-grid">
+            <div>
+              <h3>Education</h3>
+              <p>Asia Pacific College (on-going)</p>
             </div>
-
-            <div class="row mt-4">
-              <div class="col-sm-6">
-                <h3>Hobbies / Interests</h3>
-                <p>Gaming and gala with friends</p>
-              </div>
-
-              <div class="col-sm-6">
-                <h3>Goals in Life / Dream</h3>
-                <p>Develop a successful game</p>
-              </div>
+            <div>
+              <h3>Course</h3>
+              <p>Bachelor of IT</p>
+            </div>
+            <div>
+              <h3>IT Experience</h3>
+              <p>GitHub, game dev, Lua & Python</p>
+            </div>
+            <div>
+              <h3>Hobbies</h3>
+              <p>Gaming and gala with friends</p>
+            </div>
+            <div>
+              <h3>Goals</h3>
+              <p>Develop a successful game</p>
             </div>
           </div>
         </section>
 
         <!-- GALLERY -->
         <section v-show="currentPage === 'gallery'" class="page">
-          <div class="container my-5">
-            <h2 class="text-center mb-4">Image Gallery</h2>
+          <h2>Image Gallery</h2>
 
-            <div class="row g-3">
-              <div
-                v-for="(img, index) in gallery"
-                :key="index"
-                class="col-6 col-md-4 col-lg-3"
-              >
-                <img
-                  :src="img"
-                  class="img-fluid gallery-img"
-                  :alt="`Gallery image ${index + 1}`"
-                />
-              </div>
-            </div>
+          <div class="gallery-grid">
+            <img
+              v-for="(img, index) in gallery"
+              :key="index"
+              :src="img"
+              class="gallery-img"
+              :alt="`Gallery image ${index + 1}`"
+            />
           </div>
         </section>
 
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
+// replace these with your actual local images
 import avatar from '@/assets/avatar.jpg'
 import img1 from '@/assets/imageGalleryImage1.png'
 import img2 from '@/assets/imageGalleryImage2.jpg'
@@ -139,22 +97,92 @@ import img3 from '@/assets/imageGalleryImage3.jpg'
 import img4 from '@/assets/imageGalleryImage4.jpg'
 
 const currentPage = ref('home')
+const menuOpen = ref(false)
 
 const gallery = [img1, img2, img3, img4]
+
+const go = (page) => {
+  currentPage.value = page
+  menuOpen.value = false
+}
 </script>
 
-<style>
+<style scoped>
 * {
   box-sizing: border-box;
 }
 
-body {
-  background: radial-gradient(circle at 20% 20%, #0d0f1a, #000000 80%);
-  color: #ffffff;
-  font-family: "Inter", sans-serif;
+.profile-container {
   min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #0d0f1a, #000 80%);
+  color: #fff;
+  font-family: Inter, sans-serif;
 }
 
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #111;
+  z-index: 1000;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  cursor: pointer;
+}
+
+/* MOBILE NAV */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+/* STAR FIELD */
 .star-field {
   position: fixed;
   top: 0;
@@ -168,46 +196,51 @@ body {
   background-size: contain;
 }
 
+/* CONTENT */
+.content {
+  padding-top: 90px;
+  display: flex;
+  justify-content: center;
+}
+
 .profile-card {
-  width: min(90%, 1200px);
-  min-height: 70vh;
-  padding: clamp(32px, 5vw, 64px);
+  width: min(90%, 1000px);
+  padding: 2rem;
   backdrop-filter: blur(14px);
 }
 
-.avatar {
-  width: clamp(100px, 25vw, 140px);
-  height: clamp(100px, 25vw, 140px);
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid rgba(255,255,255,0.3);
-  box-shadow: 0 0 15px rgba(255,255,255,0.25);
+/* ABOUT GRID */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
-p {
-  color: #cdcdcd;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
+/* GALLERY GRID */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
 }
-
-h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
-h2 { font-size: clamp(1.3rem, 3vw, 1.8rem); }
-h3 { font-size: clamp(1.1rem, 2.5vw, 1.25rem); }
 
 .gallery-img {
-  width: clamp(180px, 22vw, 360px);
+  width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  display: block;
-  margin: auto;
   transition: transform 0.3s ease;
 }
 
 .gallery-img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(255,255,255,0.25);
+  transform: scale(1.05);
 }
 
-.page {
-  padding-top: 100px;
+/* AVATAR */
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1rem auto;
+  display: block;
 }
 </style>
