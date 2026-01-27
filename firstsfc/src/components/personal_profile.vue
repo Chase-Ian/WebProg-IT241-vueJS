@@ -223,7 +223,6 @@ const go = (page) => {
   max-width: 1000px;
   padding: 2rem;
   backdrop-filter: blur(14px);
-  background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
 
