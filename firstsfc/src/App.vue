@@ -1,3 +1,6 @@
+import './bootstrap/dist/css/bootstrap.min.css'
+import './bootstrap/dist/js/bootstrap.bundle.min.js'
+
 <template>
   <h1>Food</h1>
   <food-item/>
@@ -6,7 +9,8 @@
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import './bootstrap/dist/css/bootstrap.min.css'
+import './bootstrap/dist/js/bootstrap.bundle.min.js'
+export default {}
 </script>
 
