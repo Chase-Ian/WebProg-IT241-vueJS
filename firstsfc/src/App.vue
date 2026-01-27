@@ -14,6 +14,7 @@ export default {}
 .app-stack {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* optional spacing */
+  gap: 1rem; 
+  align-items: center;
 }
 </style>
