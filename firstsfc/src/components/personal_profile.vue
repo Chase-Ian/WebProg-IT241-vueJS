@@ -114,7 +114,6 @@ const go = (page) => {
 
 .profile-container {
   min-height: 100vh;
-  background: radial-gradient(circle at 20% 20%, #0d0f1a, #000 80%);
   color: #fff;
   font-family: Inter, sans-serif;
 }
@@ -192,8 +191,8 @@ const go = (page) => {
   pointer-events: none;
   z-index: -1;
   background: url('https://i.pinimg.com/originals/f5/42/b4/f542b451edfdd55a8bf3f0a1392ef9f6.jpg');
-  opacity: 0.35;
   background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* CONTENT */
