@@ -42,5 +42,6 @@ onMounted(() => {
     margin: 10px;
     padding: 10px;
     background: inherit;
+    backdrop-filter: blur(14px);
   }
 </style>
