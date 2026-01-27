@@ -110,6 +110,8 @@ const go = (page) => {
 <style scoped>
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .profile-container {
@@ -123,8 +125,9 @@ const go = (page) => {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #111;
+  background: rgba(17, 17, 17, 0.95);
   z-index: 1000;
+  backdrop-filter: blur(5px);
 }
 
 .nav-inner {
@@ -139,11 +142,12 @@ const go = (page) => {
 .brand {
   font-weight: bold;
   cursor: pointer;
+  font-size: 1.2rem;
 }
 
 .hamburger {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   background: none;
   border: none;
   color: white;
@@ -158,6 +162,11 @@ const go = (page) => {
 
 .nav-links li {
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-links li:hover {
+  color: #0af;
 }
 
 /* MOBILE NAV */
@@ -174,10 +183,15 @@ const go = (page) => {
     flex-direction: column;
     width: 200px;
     display: none;
+    padding: 1rem 0;
   }
 
   .nav-links.open {
     display: flex;
+  }
+
+  .nav-links li {
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -190,8 +204,7 @@ const go = (page) => {
   width: 100%;
   pointer-events: none;
   z-index: -1;
-  background: url('https://i.pinimg.com/originals/f5/42/b4/f542b451edfdd55a8bf3f0a1392ef9f6.jpg');
-  background-size: contain;
+  background: url('https://i.pinimg.com/originals/f5/42/b4/f542b451edfdd55a8bf3f0a1392ef9f6.jpg') center/cover no-repeat;
 }
 
 /* CONTENT */
@@ -199,25 +212,30 @@ const go = (page) => {
   padding-top: 90px;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
+/* PROFILE CARD */
 .profile-card {
-  width: min(90%, 1000px);
+  width: 90%;
+  max-width: 1000px;
   padding: 2rem;
   backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 /* ABOUT GRID */
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
 /* GALLERY GRID */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
 }
 
@@ -226,6 +244,7 @@ const go = (page) => {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   transition: transform 0.3s ease;
+  border-radius: 8px;
 }
 
 .gallery-img:hover {
@@ -240,5 +259,31 @@ const go = (page) => {
   object-fit: cover;
   margin: 1rem auto;
   display: block;
+}
+
+/* RESPONSIVE TYPOGRAPHY */
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    padding: 1rem;
+  }
+
+  .nav-inner {
+    padding: 0.5rem 1rem;
+  }
 }
 </style>
