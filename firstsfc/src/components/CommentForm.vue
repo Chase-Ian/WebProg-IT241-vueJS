@@ -57,11 +57,13 @@
 
   .form-group {
     margin-bottom: 1rem;
+    color: #fff;
   }
   
   label {
     display: block;
     margin-bottom: 0.5rem;
+    color: #fff;
   }
   
   .form-control {
@@ -69,6 +71,7 @@
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    color: #fff;
   }
   
   .btn {
