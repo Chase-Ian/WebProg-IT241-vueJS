@@ -12,7 +12,7 @@ import RestApi from './components/RestApi.vue'; // Adjust path
 
 export default {
   components: {
-    ApiDemo,
+    RestApi,
   },
 };
 </script>
