@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import ApiDemo from './components/RestApi.vue'; // Adjust path
+import RestApi from './components/RestApi.vue'; // Adjust path
 
 export default {
   components: {
