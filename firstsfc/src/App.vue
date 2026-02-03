@@ -1,12 +1,15 @@
 <template>
   <div class="app-stack">
-    <personal-profile />
-    <commentform />
-    <comment />
+    <personal-profile/>
+    <commentform/>
+    <comment/>
+    <rest-api/>
   </div>
 </template>
 
 <script>
+import RestApi from './components/RestApi.vue';
+
 export default {}
 </script>
 
