@@ -3,12 +3,18 @@
     <personal-profile/>
     <commentform/>
     <comment/>
-    <restApi/>
+    <RestApi/>
   </div>
 </template>
 
 <script>
+import ApiDemo from './components/RestApi.vue'; // Adjust path
 
+export default {
+  components: {
+    ApiDemo,
+  },
+};
 </script>
 
 <style>
