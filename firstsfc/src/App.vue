@@ -3,7 +3,7 @@
     <personal-profile/>
     <commentform/>
     <comment/>
-    <rest-api/>
+    <restApi/>
   </div>
 </template>
 
